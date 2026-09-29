@@ -3,15 +3,22 @@ import Login from "../pages/auth/LoginPage";
 import Signup from "../pages/auth/RegisterPage";
 import Dashboard from "../pages/dashboard/DashboardPage";
 import ProtectedRoute from "./ProtectedRoute";
+import PublicRoute from "./PublicRoute";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Login />,
-  },
-  {
-    path: "/sign-up",
-    element: <Signup />,
+    element: <PublicRoute />,
+    children: [
+      {
+        path: "/",
+        element: <Login />,
+      },
+      {
+        path: "/sign-up",
+        element: <Signup />,
+      },
+    ],
   },
   {
     path: "/",
@@ -24,3 +31,4 @@ export const router = createBrowserRouter([
     ],
   },
 ]);
+
