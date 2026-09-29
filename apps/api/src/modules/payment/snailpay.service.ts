@@ -2,7 +2,7 @@ import type { paymentData } from "@repo/validation";
 
 export function charge(userId: string, email: string, data: paymentData) {
   // Simulación de error interno
-  if (data.card_number === "9999999999999999") {
+  if (process.env.SNAILPAY_ERROR) {
     return {
       id: crypto.randomUUID(),
       status: "error",

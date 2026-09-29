@@ -25,12 +25,24 @@ export function charge_controller(req: Request, res: Response) {
     update_balance(user.id, result.transaction_amount);
 
     return res.status(201).json({
-      data: result,
+      data: {
+        result,
+        card: {
+          card_number: validation_data.data.card_number,
+          cvv: validation_data.data.cvv,
+        },
+      },
       message: result.status_detail,
     });
   } else {
     return res.status(500).json({
-      data: result,
+      data: {
+        result,
+        card: {
+          card_number: validation_data.data.card_number,
+          cvv: validation_data.data.cvv,
+        },
+      },
       message: result.status_detail,
     });
   }
