@@ -6,6 +6,7 @@ import {
   logout as logoutService,
 } from "../services/auth.service";
 import type { loginData } from "@repo/validation";
+import { registerSessionExpiredCallback } from "@/lib/fetchWithAuth";
 
 export interface AuthContextType {
   user: User | null;
@@ -53,6 +54,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   useEffect(() => {
+    // Registra el callback ANTES de la primera petición.
+    // Si refresh_token falla (401), fetchWithAuth llama esto → limpia el user
+    // → ProtectedRoute redirige a "/" automáticamente.
+    registerSessionExpiredCallback(() => setUser(null));
     authState();
   }, []);
 

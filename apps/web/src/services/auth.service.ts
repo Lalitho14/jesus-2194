@@ -1,4 +1,5 @@
 import type { loginData, signupData } from "@repo/validation";
+import { fetchWithAuth } from "@/lib/fetchWithAuth";
 
 const url = "http://localhost:3033/api/auth";
 
@@ -53,9 +54,8 @@ export async function login(formData: loginData) {
 
 export async function getUser() {
   try {
-    const response = await fetch(`${url}/me`, {
+    const response = await fetchWithAuth(`${url}/me`, {
       method: "GET",
-      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
@@ -77,9 +77,8 @@ export async function getUser() {
 
 export async function logout() {
   try {
-    const response = await fetch(`${url}/logout`, {
+    const response = await fetchWithAuth(`${url}/logout`, {
       method: "POST",
-      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },

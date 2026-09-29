@@ -1,10 +1,11 @@
+import { fetchWithAuth } from "@/lib/fetchWithAuth";
 import type { paymentData } from "@repo/validation";
 
 const url = "http://localhost:3033/api/payment";
 
 export async function charge(formData: paymentData) {
   try {
-    const response = await fetch(`${url}/recharge`, {
+    const response = await fetchWithAuth(`${url}/recharge`, {
       method: "POST",
       credentials: "include",
       headers: {
