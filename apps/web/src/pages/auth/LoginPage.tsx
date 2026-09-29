@@ -34,21 +34,16 @@ export default function Login() {
     try {
       const res = await login(data);
 
-      console.log(res);
-
-      //      if (res.ok) window.location.reload();
-      //      else {
       toast.add({
-        type: "error",
-        title: "Error",
+        type: "success",
+        title: "Login successfully",
         description: res.message,
       });
-      //    }
-    } catch (error: any) {
+    } catch (error) {
       toast.add({
         type: "error",
         title: "Error",
-        description: error.message,
+        description: error instanceof Error ? error.message : "Server error",
       });
     }
   };

@@ -10,11 +10,17 @@ export async function login(formData: { email: string; password: string }) {
       body: JSON.stringify(formData),
     });
 
-    return await response.json();
+    const data = await response.json();
+
+    if (!response.ok) throw new Error(data.message ?? "Login error");
+
+    return data;
   } catch (error) {
-    return {
-      message: error.message,
-    };
+    if (error instanceof Error) {
+      throw error;
+    }
+
+    throw new Error("Server error");
   }
 }
 
