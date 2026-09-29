@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
   login_controller,
+  logout_controller,
   me_controller,
   refresh_controller,
   register_controller,
@@ -13,5 +14,6 @@ router.post("/register", register_controller);
 router.post("/login", login_controller);
 router.get("/me", auth_middleware, me_controller);
 router.get("/refresh", refresh_controller);
+router.post("/logout", auth_middleware, logout_controller);
 
 export default router;

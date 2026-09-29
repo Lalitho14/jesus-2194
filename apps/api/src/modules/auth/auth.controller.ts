@@ -125,12 +125,19 @@ export function refresh_controller(req: Request, res: Response) {
       path: "/",
     });
 
-    return res.json({
+    return res.status(200).json({
       message: "Token renovated",
     });
   } catch {
-    return res.status(401).set({
+    return res.status(401).json({
       message: "Invalid refresh token or expired",
     });
   }
+}
+
+export function logout_controller(_: Request, res: Response) {
+  res.clearCookie("access_token");
+  res.clearCookie("refresh_token");
+
+  return res.status(200).json({});
 }
