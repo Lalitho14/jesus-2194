@@ -12,6 +12,7 @@ import {
 } from "./ui/dropdown-menu";
 import { Link } from "react-router-dom";
 import { useAuth } from "@/auth/AuthProvider";
+import Wallet from "./Wallet";
 
 interface AvatarBadgeProps {
   name: string | null;
@@ -23,7 +24,7 @@ export const AvatarBadge = ({ name }: AvatarBadgeProps) => {
 
   const handleLogout = async () => {
     await logout();
-    localStorage.removeItem("saldo");
+    localStorage.removeItem("balance");
   };
 
   const getInitials = (name: string | null) => {
@@ -37,7 +38,8 @@ export const AvatarBadge = ({ name }: AvatarBadgeProps) => {
   };
 
   return (
-    <Badge className="gap-2 p-5 bg-white text-primary">
+    <Badge className="gap-2 p-5 bg-primary-foreground text-primary">
+      <Wallet />
       <DropdownMenu>
         <DropdownMenuTrigger
           render={
@@ -71,7 +73,6 @@ export const AvatarBadge = ({ name }: AvatarBadgeProps) => {
           </DropdownMenuGroup>
         </DropdownMenuContent>
       </DropdownMenu>
-      {name}
     </Badge>
   );
 };

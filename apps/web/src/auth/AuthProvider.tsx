@@ -30,7 +30,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
       if (userData) {
         setUser(userData.data.user);
-        localStorage.setItem('saldo', `${userData.data.user.balance}`)
+        localStorage.setItem('balance', `${userData.data.user.balance}`)
       };
     } catch (error) {
       setUser(null);
