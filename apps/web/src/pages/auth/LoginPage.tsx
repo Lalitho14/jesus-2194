@@ -14,14 +14,16 @@ import {
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { LoaderCircle } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { loginSchema, type loginData } from "@repo/validation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { login } from "@/services/auth.service";
 import { toast } from "@/components/ui/toast";
+import { useAuth } from "@/auth/AuthProvider";
 
 export default function Login() {
+  const { login } = useAuth();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -32,13 +34,15 @@ export default function Login() {
 
   const onSubmit = async (data: loginData) => {
     try {
-      const res = await login(data);
+      await login(data); // llama al service + inicializa user en el contexto
 
       toast.add({
         type: "success",
         title: "Login successfully",
-        description: res.message,
+        description: "Welcome back!",
       });
+
+      navigate("/dashboard");
     } catch (error) {
       toast.add({
         type: "error",
