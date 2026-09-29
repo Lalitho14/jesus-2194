@@ -17,12 +17,12 @@ export async function register_controller(req: Request, res: Response) {
 
   if (!user) {
     return res.status(409).json({
-      message: "Email registered already",
+      message: "Email already registered",
     });
   }
 
   return res.status(201).json({
-    message: "User registered successfully. You can sign up now!",
+    message: "User registered successfully. You can sign in now!",
   });
 }
 
