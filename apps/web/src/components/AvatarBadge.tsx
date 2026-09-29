@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { Link } from "react-router-dom";
+import { useAuth } from "@/auth/AuthProvider";
 
 interface AvatarBadgeProps {
   name: string | null;
@@ -18,6 +19,13 @@ interface AvatarBadgeProps {
 }
 
 export const AvatarBadge = ({ name }: AvatarBadgeProps) => {
+  const { logout } = useAuth();
+
+  const handleLogout = async () => {
+    await logout();
+    localStorage.removeItem("saldo");
+  };
+
   const getInitials = (name: string | null) => {
     if (!name) return "?";
     return name
@@ -56,7 +64,7 @@ export const AvatarBadge = ({ name }: AvatarBadgeProps) => {
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
-            <DropdownMenuItem className="cursor-pointer">
+            <DropdownMenuItem className="cursor-pointer" onClick={handleLogout}>
               <LogOut />
               Sign out
             </DropdownMenuItem>
