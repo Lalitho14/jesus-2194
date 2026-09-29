@@ -86,7 +86,7 @@ export function me_controller(req: Request, res: Response) {
 
   return res.json({
     data: {
-      user_response,
+      user: user_response,
     },
   });
 }
