@@ -30,6 +30,7 @@ export async function login(formData: loginData) {
   try {
     const response = await fetch(`${url}/login`, {
       method: "POST",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },

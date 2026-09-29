@@ -48,14 +48,14 @@ export async function login_controller(req: Request, res: Response) {
 
   res.cookie("access_token", tokens.access_token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "prduction",
+    secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
     path: "/",
   });
 
   res.cookie("refresh_token", tokens.refresh_token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "prduction",
+    secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
     path: "/",
   });
@@ -120,7 +120,7 @@ export function refresh_controller(req: Request, res: Response) {
 
     res.cookie("access_token", access_token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "prduction",
+      secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
       path: "/",
     });
