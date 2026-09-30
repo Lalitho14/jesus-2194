@@ -39,7 +39,7 @@ export default function WalletForm({
       full_name: '',
       card_number: '',
       expiration_date: '',
-      cvv: null
+      cvv: 0
     });
   }, [form, open]);
 

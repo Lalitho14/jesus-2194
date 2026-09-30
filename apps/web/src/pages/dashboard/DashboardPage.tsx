@@ -77,7 +77,7 @@ export default function Dashboard() {
 
   return (
     <main className="min-h-screen animate-fade-in flex flex-col flex-1 w-full py-5">
-      <h2 className="pb-5 text-lg font-bold ">Hello, {user.name} !!</h2>
+      <h2 className="pb-5 text-lg font-bold ">Hello, {user?.name} !!</h2>
 
       <div className="grid md:grid-cols-2 gap-2">
         <div>
