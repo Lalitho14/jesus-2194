@@ -1,7 +1,7 @@
 import { fetchWithAuth } from "@/lib/fetchWithAuth";
 import type { paymentData } from "@repo/validation";
 
-const url = "http://localhost:3033/api/payment";
+const url = `${import.meta.env.API_URL}/payment`;
 
 export async function charge(formData: paymentData) {
   try {

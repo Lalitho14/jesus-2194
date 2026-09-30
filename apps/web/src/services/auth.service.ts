@@ -1,7 +1,7 @@
 import type { loginData, signupData } from "@repo/validation";
 import { fetchWithAuth } from "@/lib/fetchWithAuth";
 
-const url = "http://localhost:3033/api/auth";
+const url = `${import.meta.env.API_URL}/auth`;
 
 export async function signup(formData: signupData) {
   try {
