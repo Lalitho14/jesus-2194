@@ -76,13 +76,13 @@ pnpm --version
 Clona el repositorio:
 
 ```bash
-git clone <URL_DEL_REPOSITORIO>
+git clone https://github.com/Lalitho14/jesus-2194
 ```
 
 Entra al directorio:
 
 ```bash
-cd <NOMBRE_DEL_PROYECTO>
+cd jesus-2194
 ```
 
 ---
@@ -263,19 +263,6 @@ Cuando la transacción es aprobada:
 4. El frontend actualiza el dashboard.
 5. El saldo puede almacenarse en LocalStorage.
 
-## Transacción rechazada
-
-Se pueden utilizar datos diferentes a los valores válidos de prueba para provocar una transacción rechazada.
-
-Por ejemplo, utilizar un número de tarjeta diferente al definido para la aprobación puede producir:
-
-```json
-{
-  "status": "rejected",
-  "status_detail": "Card declined"
-}
-```
-
 ## Error interno
 
 El error interno de SnailPay puede simularse mediante:
@@ -331,10 +318,10 @@ Si ya tienes Node.js instalado, los pasos principales son:
 
 ```bash
 # 1. Clonar
-git clone <URL_DEL_REPOSITORIO>
+git clone https://github.com/Lalitho14/jesus-2194
 
 # 2. Entrar al proyecto
-cd <NOMBRE_DEL_PROYECTO>
+cd jesus-2194
 
 # 3. Instalar dependencias
 pnpm install
