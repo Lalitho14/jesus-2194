@@ -342,6 +342,9 @@ pnpm install
 # 4. Configurar variables de entorno
 # Crear apps/api/.env
 
+# 5. Configurar variables de entorno
+# Crear apps/web/.env
+
 # 5. Iniciar frontend y backend
 pnpm dev
 ```
@@ -354,29 +357,3 @@ pnpm --filter web test
 ```
 
 ---
-
-# Estado del proyecto
-
-Este proyecto está planteado como una prueba local y prioriza una implementación sencilla y funcional.
-
-Actualmente incluye:
-
-* Monorepo con pnpm y Turborepo.
-* Backend Express con TypeScript.
-* Frontend React con TypeScript.
-* Tailwind CSS y shadcn/ui.
-* React Router DOM.
-* Validaciones con Zod.
-* Registro y login local.
-* Autenticación JWT.
-* Access token y refresh token.
-* Cookies HttpOnly.
-* Endpoint de usuario autenticado.
-* Renovación del access token.
-* Mock de pagos SnailPay.
-* Recarga de saldo.
-* Manejo de transacciones aprobadas y rechazadas.
-* Simulación de errores internos de SnailPay.
-* Pruebas automatizadas para backend y frontend.
-
-La persistencia mediante una base de datos y otras características de producción pueden incorporarse posteriormente.
