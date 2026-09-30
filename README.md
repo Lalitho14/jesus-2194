@@ -4,40 +4,6 @@ Monorepo desarrollado con **TypeScript**, utilizando **Express** para el backend
 
 El proyecto utiliza **pnpm** como gestor de paquetes y **Turborepo** para administrar las aplicaciones y paquetes del monorepo.
 
-## Tecnologías utilizadas
-
-* Node.js
-* pnpm
-* Turborepo
-* TypeScript
-* Express
-* React
-* Vite
-* React Router DOM
-* Tailwind CSS
-* shadcn/ui
-* Zod
-* JWT
-* bcrypt
-* Cookies HttpOnly
-
-## Estructura del proyecto
-
-```text
-.
-├── apps/
-│   ├── api/          # Backend Express
-│   └── web/          # Frontend React
-│
-├── packages/
-│   └── validation/   # Schemas compartidos con Zod
-│
-├── package.json
-├── pnpm-workspace.yaml
-├── turbo.json
-└── README.md
-```
-
 ---
 
 # Requisitos
